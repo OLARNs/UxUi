@@ -3,1218 +3,578 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REAVER Design System — v1.0</title>
+<title>REAVER Design System v1.0</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-
-/* ============================================================
-   REAVER DESIGN SYSTEM — Design Tokens
-   ============================================================ */
 :root {
-
-  /* Primitive: Neutral */
-  --n-50:   #F5F5F7;
-  --n-100:  #E5E5EA;
-  --n-200:  #C7C7CC;
-  --n-300:  #AEAEB2;
-  --n-400:  #8E8E93;
-  --n-500:  #636366;
-  --n-600:  #48484A;
-  --n-700:  #363638;
-  --n-800:  #2C2C2E;
-  --n-900:  #1C1C1E;
-  --n-950:  #141416;
-  --n-1000: #0A0A0C;
-
-  /* Primitive: Crimson */
-  --c-50:   #FFF0F1;
-  --c-100:  #FFD6D9;
-  --c-200:  #FFACB3;
-  --c-300:  #FF7282;
-  --c-400:  #E84055;
-  --c-500:  #C41E3A;
-  --c-600:  #A51830;
-  --c-700:  #8A1228;
-  --c-800:  #6D0D1F;
-  --c-900:  #4A0813;
-
-  /* Semantic: Background */
-  --bg-base:     #0A0A0C;
-  --bg-surface:  #141416;
-  --bg-elevated: #1C1C1E;
-  --bg-overlay:  #2C2C2E;
-
-  /* Semantic: Border */
-  --border-subtle:  #2C2C2E;
-  --border-default: #363638;
-  --border-strong:  #48484A;
-
-  /* Semantic: Text */
-  --text-primary:   #F5F5F7;
-  --text-secondary: #AEAEB2;
-  --text-tertiary:  #636366;
-  --text-disabled:  #48484A;
-  --text-inverse:   #0A0A0C;
-
-  /* Semantic: Brand */
-  --brand:         #C41E3A;
-  --brand-hover:   #E84055;
-  --brand-active:  #A51830;
-  --brand-subtle:  rgba(196, 30, 58, 0.12);
-  --brand-border:  rgba(196, 30, 58, 0.30);
-
-  /* Semantic: Status */
-  --success:    #30A46C;
-  --success-bg: rgba(48, 164, 108, 0.12);
-  --warning:    #F59E0B;
-  --warning-bg: rgba(245, 158, 11, 0.12);
-  --error:      #EF4444;
-  --error-bg:   rgba(239, 68, 68, 0.12);
-  --info:       #3B82F6;
-  --info-bg:    rgba(59, 130, 246, 0.12);
-
-  /* Spacing */
-  --sp-1:  4px;
-  --sp-2:  8px;
-  --sp-3:  12px;
-  --sp-4:  16px;
-  --sp-5:  20px;
-  --sp-6:  24px;
-  --sp-8:  32px;
-  --sp-10: 40px;
-  --sp-12: 48px;
-  --sp-16: 64px;
-  --sp-20: 80px;
-
-  /* Border Radius */
-  --r-xs:   4px;
-  --r-sm:   6px;
-  --r-md:   8px;
-  --r-lg:   12px;
-  --r-xl:   16px;
-  --r-2xl:  24px;
-  --r-full: 9999px;
-
-  /* Typography */
-  --font:      'Prompt', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-
-  /* Shadows */
-  --shadow-sm:    0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md:    0 4px 12px rgba(0,0,0,0.5);
-  --shadow-lg:    0 8px 32px rgba(0,0,0,0.6);
-  --shadow-brand: 0 4px 20px rgba(196,30,58,0.3);
-
-  /* Duration */
-  --dur-instant: 100ms;
-  --dur-fast:    200ms;
-  --dur-normal:  300ms;
-  --dur-slow:    500ms;
+  --n-50:#F5F5F7;--n-100:#E5E5EA;--n-200:#C7C7CC;--n-300:#AEAEB2;
+  --n-400:#8E8E93;--n-500:#636366;--n-600:#48484A;--n-700:#363638;
+  --n-800:#2C2C2E;--n-900:#1C1C1E;--n-950:#141416;--n-1000:#0A0A0C;
+  --c-50:#FFF0F1;--c-100:#FFD6D9;--c-200:#FFACB3;--c-300:#FF7282;
+  --c-400:#E84055;--c-500:#C41E3A;--c-600:#A51830;--c-700:#8A1228;
+  --c-800:#6D0D1F;--c-900:#4A0813;
+  --bg-base:#0A0A0C;--bg-surface:#141416;--bg-elevated:#1C1C1E;--bg-overlay:#2C2C2E;
+  --border-subtle:#2C2C2E;--border-default:#363638;--border-strong:#48484A;
+  --text-primary:#F5F5F7;--text-secondary:#AEAEB2;--text-tertiary:#636366;--text-disabled:#48484A;
+  --brand:#C41E3A;--brand-hover:#E84055;--brand-active:#A51830;
+  --brand-subtle:rgba(196,30,58,.12);--brand-border:rgba(196,30,58,.3);
+  --success:#30A46C;--success-bg:rgba(48,164,108,.12);
+  --warning:#F59E0B;--warning-bg:rgba(245,158,11,.12);
+  --error:#EF4444;--error-bg:rgba(239,68,68,.12);
+  --info:#3B82F6;--info-bg:rgba(59,130,246,.12);
+  --font:'Prompt',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono','Fira Code',Consolas,monospace;
+  --text-xs:11px;--text-xs-lh:16px;
+  --text-sm:12px;--text-sm-lh:18px;
+  --text-base:14px;--text-base-lh:22px;
+  --text-md:16px;--text-md-lh:24px;
+  --text-lg:18px;--text-lg-lh:26px;
+  --text-xl:22px;--text-xl-lh:30px;
+  --text-2xl:28px;--text-2xl-lh:36px;
+  --text-3xl:36px;--text-3xl-lh:44px;
+  --text-4xl:48px;--text-4xl-lh:56px;
+  --fw-light:300;--fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;
+  --sp-8:32px;--sp-10:40px;--sp-12:48px;--sp-16:64px;--sp-20:80px;
+  --r-xs:4px;--r-sm:6px;--r-md:8px;--r-lg:12px;--r-xl:16px;--r-2xl:24px;--r-full:9999px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.4);--shadow-md:0 4px 12px rgba(0,0,0,.5);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.6);--shadow-brand:0 4px 20px rgba(196,30,58,.3);
+  --dur-fast:200ms;--dur-normal:300ms;
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);font-size:14px;line-height:22px;color:var(--text-primary);background:var(--bg-base);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
 
-html { scroll-behavior: smooth; }
+.app{display:flex;min-height:100vh}
 
-body {
-  font-family: var(--font);
-  font-size: 14px;
-  line-height: 22px;
-  color: var(--text-primary);
-  background-color: var(--bg-base);
-  -webkit-font-smoothing: antialiased;
+.sidebar{
+  position:fixed;top:0;left:0;width:256px;height:100vh;
+  background:var(--bg-surface);border-right:1px solid var(--border-subtle);
+  display:flex;flex-direction:column;overflow-y:auto;z-index:100;
+  transition:transform var(--dur-normal) cubic-bezier(.4,0,.2,1);
 }
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border-default);border-radius:var(--r-full)}
 
-a { color: inherit; text-decoration: none; }
-
-/* ============================================================
-   LAYOUT — Sidebar + Main
-   ============================================================ */
-.app {
-  display: flex;
-  min-height: 100vh;
+.sidebar-logo{
+  padding:var(--sp-5) var(--sp-6);border-bottom:1px solid var(--border-subtle);
+  display:flex;align-items:center;gap:var(--sp-3);flex-shrink:0;
 }
-
-/* --- Sidebar --- */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 256px;
-  height: 100vh;
-  background-color: var(--bg-surface);
-  border-right: 1px solid var(--border-subtle);
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  z-index: 100;
-  transition: transform var(--dur-normal) cubic-bezier(0.4,0,0.2,1);
+.logo-mark{
+  width:32px;height:32px;background:var(--brand);border-radius:var(--r-sm);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff;letter-spacing:.06em;flex-shrink:0;
 }
+.logo-name{font-size:15px;font-weight:700;letter-spacing:.08em;display:block}
+.logo-ver{font-size:10px;color:var(--text-tertiary);letter-spacing:.06em;display:block}
 
-.sidebar::-webkit-scrollbar { width: 4px; }
-.sidebar::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: var(--r-full); }
-
-.sidebar-logo {
-  padding: var(--sp-6);
-  border-bottom: 1px solid var(--border-subtle);
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  flex-shrink: 0;
+.sidebar-nav{padding:var(--sp-4) 0;flex:1}
+.nav-group{margin-bottom:var(--sp-2)}
+.nav-group-label{
+  padding:var(--sp-2) var(--sp-6);font-size:10px;font-weight:600;
+  color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;
 }
-
-.logo-mark {
-  width: 32px;
-  height: 32px;
-  background-color: var(--brand);
-  border-radius: var(--r-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.04em;
-  flex-shrink: 0;
+.nav-link{
+  display:flex;align-items:center;gap:var(--sp-3);padding:7px var(--sp-6);
+  font-size:13px;color:var(--text-secondary);border-left:2px solid transparent;
+  transition:all var(--dur-fast) ease-out;cursor:pointer;
 }
+.nav-link:hover{color:var(--text-primary);background:var(--bg-elevated)}
+.nav-link.active{color:var(--brand);border-left-color:var(--brand);background:var(--brand-subtle);font-weight:500}
+.nav-dot{width:5px;height:5px;border-radius:var(--r-full);background:currentColor;opacity:.5;flex-shrink:0}
+.nav-link.active .nav-dot{opacity:1}
+.nav-badge{font-size:9px;color:var(--text-tertiary);margin-left:auto;opacity:.7}
 
-.logo-text { display: flex; flex-direction: column; }
-.logo-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.08em;
+.menu-btn{
+  display:none;position:fixed;top:var(--sp-4);left:var(--sp-4);z-index:200;
+  width:40px;height:40px;background:var(--bg-elevated);border:1px solid var(--border-default);
+  border-radius:var(--r-md);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;
 }
-.logo-version {
-  font-size: 10px;
-  font-weight: 400;
-  color: var(--text-tertiary);
-  letter-spacing: 0.06em;
+.menu-btn span{display:block;width:18px;height:2px;background:var(--text-primary);border-radius:2px}
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99}
+
+.main{margin-left:256px;flex:1;min-width:0}
+.content{max-width:900px;padding:var(--sp-12) var(--sp-10)}
+
+.section{padding-bottom:var(--sp-16);border-bottom:1px solid var(--border-subtle);margin-bottom:var(--sp-16)}
+.section:last-child{border-bottom:none;margin-bottom:0}
+
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:var(--sp-2)}
+.section-title{font-size:28px;font-weight:700;line-height:1.2;margin-bottom:var(--sp-3)}
+.section-desc{font-size:14px;color:var(--text-secondary);line-height:1.7;max-width:600px;margin-bottom:var(--sp-10)}
+.sub-title{font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:var(--sp-4);margin-top:var(--sp-8)}
+
+.hero{padding:var(--sp-12) 0 var(--sp-16);border-bottom:1px solid var(--border-subtle);margin-bottom:var(--sp-16)}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:var(--sp-2);
+  background:var(--brand-subtle);border:1px solid var(--brand-border);border-radius:var(--r-full);
+  padding:3px var(--sp-3);font-size:10px;font-weight:600;color:var(--brand);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:var(--sp-6);
 }
+.hero-badge-dot{width:6px;height:6px;background:var(--brand);border-radius:var(--r-full)}
+.hero-title{font-size:48px;font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:var(--sp-4)}
+.hero-title span{color:var(--brand)}
+.hero-sub{font-size:16px;color:var(--text-secondary);line-height:1.6;max-width:520px;margin-bottom:var(--sp-8)}
+.hero-meta{display:flex;gap:var(--sp-6);flex-wrap:wrap}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.meta-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-tertiary)}
+.meta-value{font-size:13px;font-weight:500}
 
-.sidebar-nav {
-  padding: var(--sp-4) 0;
-  flex: 1;
+.principles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--sp-4)}
+.p-card{background:var(--bg-surface);border:1px solid var(--border-default);border-radius:var(--r-lg);padding:var(--sp-6);transition:border-color var(--dur-fast) ease-out}
+.p-card:hover{border-color:var(--border-strong)}
+.p-num{font-family:var(--font-mono);font-size:11px;color:var(--brand);margin-bottom:var(--sp-3)}
+.p-name{font-size:15px;font-weight:600;margin-bottom:var(--sp-2)}
+.p-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+
+.color-row{display:flex;gap:var(--sp-2);flex-wrap:wrap;margin-bottom:var(--sp-8)}
+.swatch{display:flex;flex-direction:column;gap:4px;flex:1;min-width:60px}
+.swatch-block{height:52px;border-radius:var(--r-md);border:1px solid rgba(255,255,255,.06)}
+.swatch-num{font-size:10px;font-weight:600;color:var(--text-tertiary);text-align:center}
+.swatch-hex{font-family:var(--font-mono);font-size:9px;color:var(--text-tertiary);text-align:center}
+.swatch.primary .swatch-num,.swatch.primary .swatch-hex{color:var(--brand)}
+
+.semantic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:var(--sp-3);margin-bottom:var(--sp-8)}
+.sem-card{background:var(--bg-surface);border:1px solid var(--border-default);border-radius:var(--r-lg);overflow:hidden}
+.sem-swatch{height:60px;display:flex;align-items:center;justify-content:center}
+.sem-dot{width:36px;height:36px;border-radius:var(--r-md);border:1px solid rgba(255,255,255,.1)}
+.sem-info{padding:var(--sp-3) var(--sp-4);border-top:1px solid var(--border-subtle)}
+.sem-role{font-size:12px;font-weight:600;margin-bottom:2px}
+.sem-token{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);margin-bottom:2px}
+.sem-hex{font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary)}
+
+.tbl{width:100%;border-collapse:collapse;margin-bottom:var(--sp-8)}
+.tbl th{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-tertiary);text-align:left;padding:var(--sp-3) var(--sp-4);border-bottom:1px solid var(--border-default)}
+.tbl td{font-size:13px;color:var(--text-secondary);padding:var(--sp-3) var(--sp-4);border-bottom:1px solid var(--border-subtle);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td:first-child{font-family:var(--font-mono);font-size:11px;color:var(--text-primary);white-space:nowrap}
+.chip{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.08)}
+
+.code-block{background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:var(--r-lg);padding:var(--sp-6);overflow-x:auto}
+.code-block pre{font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--text-secondary)}
+.tn{color:var(--c-300)}.tv{color:var(--n-200)}.tc{color:var(--n-700)}
+
+.comp-section{margin-top:var(--sp-10)}
+.comp-title{font-size:18px;font-weight:600;margin-bottom:var(--sp-2)}
+.comp-desc{font-size:13px;color:var(--text-tertiary);margin-bottom:var(--sp-5)}
+.demo{background:var(--bg-surface);border:1px solid var(--border-default);border-radius:var(--r-xl);padding:var(--sp-8)}
+.demo-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-6)}
+.demo-row:last-child{margin-bottom:0}
+.demo-col{display:flex;flex-direction:column;gap:var(--sp-4);max-width:360px}
+.demo-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:var(--sp-3);display:block}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);
+  padding:10px var(--sp-5);font-family:var(--font);font-size:14px;font-weight:500;
+  border-radius:var(--r-md);border:1px solid transparent;cursor:pointer;
+  transition:all var(--dur-fast) ease-out;white-space:nowrap;line-height:1;
 }
+.btn:disabled{opacity:.4;cursor:not-allowed;pointer-events:none}
+.btn-primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+.btn-primary:hover{background:var(--brand-hover);border-color:var(--brand-hover);box-shadow:var(--shadow-brand)}
+.btn-primary:active{background:var(--brand-active)}
+.btn-secondary{background:var(--bg-overlay);color:var(--text-primary);border-color:var(--border-default)}
+.btn-secondary:hover{background:var(--border-default);border-color:var(--border-strong)}
+.btn-ghost{background:transparent;color:var(--text-secondary);border-color:transparent}
+.btn-ghost:hover{background:var(--bg-overlay);color:var(--text-primary)}
+.btn-danger{background:var(--error-bg);color:var(--error);border-color:rgba(239,68,68,.3)}
+.btn-danger:hover{background:var(--error);color:#fff}
+.btn-sm{padding:6px var(--sp-3);font-size:12px;border-radius:var(--r-sm)}
+.btn-lg{padding:14px var(--sp-8);font-size:16px;border-radius:var(--r-lg)}
 
-.nav-group { margin-bottom: var(--sp-2); }
-
-.nav-group-label {
-  padding: var(--sp-2) var(--sp-6);
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--text-tertiary);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.input-wrap{position:relative;display:flex;flex-direction:column;gap:6px}
+.input-label{font-size:12px;font-weight:500;color:var(--text-secondary)}
+.input{
+  width:100%;padding:10px var(--sp-4);background:var(--bg-elevated);
+  border:1px solid var(--border-default);border-radius:var(--r-md);
+  color:var(--text-primary);font-family:var(--font);font-size:14px;outline:none;
+  transition:border-color var(--dur-fast) ease-out,box-shadow var(--dur-fast) ease-out;
 }
+.input::placeholder{color:var(--text-tertiary)}
+.input:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-subtle)}
+.input:disabled{opacity:.4;cursor:not-allowed}
+.input.error{border-color:var(--error)}
+.input.error:focus{box-shadow:0 0 0 3px var(--error-bg)}
+.input-hint{font-size:12px;color:var(--text-tertiary)}
+.input-hint.error{color:var(--error)}
 
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  padding: var(--sp-2) var(--sp-6);
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-secondary);
-  border-left: 2px solid transparent;
-  transition: all var(--dur-fast) ease-out;
-  cursor: pointer;
+.badge{
+  display:inline-flex;align-items:center;gap:4px;padding:3px 10px;
+  border-radius:var(--r-full);font-size:11px;font-weight:600;letter-spacing:.04em;border:1px solid transparent;
 }
+.badge-success{background:var(--success-bg);color:var(--success);border-color:rgba(48,164,108,.3)}
+.badge-warning{background:var(--warning-bg);color:var(--warning);border-color:rgba(245,158,11,.3)}
+.badge-error{background:var(--error-bg);color:var(--error);border-color:rgba(239,68,68,.3)}
+.badge-info{background:var(--info-bg);color:var(--info);border-color:rgba(59,130,246,.3)}
+.badge-brand{background:var(--brand-subtle);color:var(--brand);border-color:var(--brand-border)}
+.badge-neutral{background:var(--bg-overlay);color:var(--text-secondary);border-color:var(--border-default)}
+.badge-dot{width:6px;height:6px;border-radius:var(--r-full);background:currentColor}
 
-.nav-link:hover {
-  color: var(--text-primary);
-  background-color: var(--bg-elevated);
+.checkbox{display:flex;align-items:center;gap:var(--sp-3);cursor:pointer;font-size:14px;color:var(--text-secondary);user-select:none}
+.checkbox input[type="checkbox"]{
+  appearance:none;-webkit-appearance:none;width:18px;height:18px;
+  border:2px solid var(--border-strong);border-radius:var(--r-xs);
+  background:var(--bg-elevated);cursor:pointer;flex-shrink:0;
+  transition:all var(--dur-fast) ease-out;position:relative;
 }
-
-.nav-link.active {
-  color: var(--brand);
-  border-left-color: var(--brand);
-  background-color: var(--brand-subtle);
-  font-weight: 500;
+.checkbox input[type="checkbox"]:checked{background:var(--brand);border-color:var(--brand)}
+.checkbox input[type="checkbox"]:checked::after{
+  content:'';position:absolute;left:3px;top:0px;width:6px;height:10px;
+  border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg);
 }
+.checkbox input[type="checkbox"]:disabled{opacity:.4;cursor:not-allowed}
+.checkbox:has(input:disabled){opacity:.4;cursor:not-allowed}
+.checkbox-group{display:flex;flex-direction:column;gap:var(--sp-4)}
 
-.nav-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: var(--r-full);
-  background-color: currentColor;
-  opacity: 0.5;
-  flex-shrink: 0;
+.game-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4)}
+.game-card{
+  background:var(--bg-surface);border:1px solid var(--border-default);
+  border-radius:var(--r-xl);overflow:hidden;cursor:pointer;
+  transition:all var(--dur-fast) ease-out;
 }
+.game-card:hover{border-color:var(--border-strong);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.game-thumb{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden}
+.game-thumb-img{width:100%;height:100%;display:flex;align-items:flex-end;padding:var(--sp-2)}
+.game-body{padding:var(--sp-4);display:flex;align-items:center;gap:var(--sp-3)}
+.game-info{flex:1;min-width:0}
+.game-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.game-sub{font-size:11px;color:var(--text-tertiary);margin-top:2px}
 
-.nav-link.active .nav-dot { opacity: 1; }
-
-/* --- Mobile toggle --- */
-.menu-toggle {
-  display: none;
-  position: fixed;
-  top: var(--sp-4);
-  left: var(--sp-4);
-  z-index: 200;
-  width: 40px;
-  height: 40px;
-  background-color: var(--bg-elevated);
-  border: 1px solid var(--border-default);
-  border-radius: var(--r-md);
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5px;
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0);box-shadow:var(--shadow-lg)}
+  .menu-btn{display:flex}
+  .menu-overlay.open{display:block}
+  .main{margin-left:0}
+  .content{padding:var(--sp-8) var(--sp-4);padding-top:72px}
+  .hero-title{font-size:32px}
+  .section-title{font-size:22px}
+  .game-grid{grid-template-columns:repeat(2,1fr)}
+  .color-row{flex-wrap:nowrap;overflow-x:auto;padding-bottom:var(--sp-2)}
+  .swatch{min-width:52px;flex-shrink:0}
 }
-
-.menu-toggle span {
-  display: block;
-  width: 18px;
-  height: 2px;
-  background-color: var(--text-primary);
-  border-radius: 2px;
-  transition: all var(--dur-fast) ease-out;
-}
-
-.menu-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 99;
-}
-
-/* --- Main Content --- */
-.main {
-  margin-left: 256px;
-  flex: 1;
-  min-width: 0;
-}
-
-.content {
-  max-width: 900px;
-  padding: var(--sp-12) var(--sp-10);
-}
-
-/* ============================================================
-   SECTION LAYOUT
-   ============================================================ */
-.section {
-  padding-bottom: var(--sp-16);
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: var(--sp-16);
-}
-
-.section:last-child { border-bottom: none; }
-
-.section-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--brand);
-  margin-bottom: var(--sp-2);
-}
-
-.section-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.25;
-  margin-bottom: var(--sp-3);
-}
-
-.section-desc {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 600px;
-  margin-bottom: var(--sp-10);
-}
-
-.subsection-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: var(--sp-4);
-  margin-top: var(--sp-8);
-}
-
-/* ============================================================
-   INTRO HERO
-   ============================================================ */
-.hero {
-  padding: var(--sp-12) 0 var(--sp-16);
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: var(--sp-16);
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-2);
-  background-color: var(--brand-subtle);
-  border: 1px solid var(--brand-border);
-  border-radius: var(--r-full);
-  padding: var(--sp-1) var(--sp-3);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--brand);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: var(--sp-6);
-}
-
-.hero-badge-dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--brand);
-  border-radius: var(--r-full);
-}
-
-.hero-title {
-  font-size: 48px;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--sp-4);
-}
-
-.hero-title span { color: var(--brand); }
-
-.hero-subtitle {
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 520px;
-  margin-bottom: var(--sp-8);
-}
-
-.hero-meta {
-  display: flex;
-  gap: var(--sp-6);
-  flex-wrap: wrap;
-}
-
-.hero-meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.hero-meta-label {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-tertiary);
-}
-
-.hero-meta-value {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-/* ============================================================
-   PRINCIPLES
-   ============================================================ */
-.principles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: var(--sp-4);
-}
-
-.principle-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  border-radius: var(--r-lg);
-  padding: var(--sp-6);
-  transition: border-color var(--dur-fast) ease-out;
-}
-
-.principle-card:hover { border-color: var(--border-strong); }
-
-.principle-number {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--brand);
-  letter-spacing: 0.08em;
-  margin-bottom: var(--sp-3);
-}
-
-.principle-name {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: var(--sp-2);
-}
-
-.principle-desc {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* ============================================================
-   COLOR SWATCHES
-   ============================================================ */
-.color-scale {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
-  margin-bottom: var(--sp-8);
-}
-
-.color-scale-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-tertiary);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: var(--sp-1);
-}
-
-.color-row {
-  display: flex;
-  gap: var(--sp-2);
-  flex-wrap: wrap;
-}
-
-.color-swatch {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-1);
-  flex: 1;
-  min-width: 64px;
-}
-
-.color-swatch-block {
-  height: 52px;
-  border-radius: var(--r-md);
-  border: 1px solid rgba(255,255,255,0.06);
-}
-
-.color-swatch-name {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--text-tertiary);
-  text-align: center;
-}
-
-.color-swatch-hex {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--text-tertiary);
-  text-align: center;
-}
-
-/* Primary swatch highlight */
-.color-swatch.is-primary .color-swatch-name,
-.color-swatch.is-primary .color-swatch-hex {
-  color: var(--brand);
-}
-
-/* Semantic colors */
-.semantic-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: var(--sp-3);
-}
-
-.semantic-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-}
-
-.semantic-swatch {
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.semantic-swatch-inner {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--r-md);
-}
-
-.semantic-info {
-  padding: var(--sp-3) var(--sp-4);
-  border-top: 1px solid var(--border-subtle);
-}
-
-.semantic-role {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 2px;
-}
-
-.semantic-token {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--text-tertiary);
-  margin-bottom: 2px;
-}
-
-.semantic-hex {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--text-tertiary);
-}
-
-/* Usage rule */
-.usage-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.usage-table th {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  text-align: left;
-  padding: var(--sp-3) var(--sp-4);
-  border-bottom: 1px solid var(--border-default);
-}
-
-.usage-table td {
-  font-size: 13px;
-  color: var(--text-secondary);
-  padding: var(--sp-3) var(--sp-4);
-  border-bottom: 1px solid var(--border-subtle);
-  vertical-align: top;
-}
-
-.usage-table tr:last-child td { border-bottom: none; }
-
-.usage-table td:first-child {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-primary);
-  white-space: nowrap;
-}
-
-.chip {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: var(--r-xs);
-  vertical-align: middle;
-  margin-right: 6px;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-/* Code block */
-.code-block {
-  background-color: var(--bg-elevated);
-  border: 1px solid var(--border-default);
-  border-radius: var(--r-lg);
-  padding: var(--sp-6);
-  overflow-x: auto;
-  margin-top: var(--sp-4);
-}
-
-.code-block pre {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  white-space: pre;
-}
-
-.code-block .token-name  { color: var(--c-300); }
-.code-block .token-value { color: var(--n-200); }
-.code-block .token-comment { color: var(--n-600); }
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-
-  .sidebar.open {
-    transform: translateX(0);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .menu-toggle { display: flex; }
-  .menu-overlay.open { display: block; }
-
-  .main { margin-left: 0; }
-
-  .content {
-    padding: var(--sp-8) var(--sp-4);
-    padding-top: 72px;
-  }
-
-  .hero-title { font-size: 32px; }
-  .section-title { font-size: 22px; }
-
-  .color-row { flex-wrap: nowrap; overflow-x: auto; padding-bottom: var(--sp-2); }
-  .color-swatch { min-width: 52px; flex-shrink: 0; }
-}
-
 </style>
 </head>
 <body>
 
-<!-- Mobile overlay -->
-<div class="menu-overlay" id="menuOverlay" onclick="closeSidebar()"></div>
-
-<!-- Mobile toggle -->
-<button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+<div class="menu-overlay" id="overlay" onclick="closeSidebar()"></div>
+<button class="menu-btn" id="menuBtn" onclick="toggleSidebar()">
   <span></span><span></span><span></span>
 </button>
 
-<!-- ============================================================
-     SIDEBAR
-     ============================================================ -->
 <aside class="sidebar" id="sidebar">
-
   <div class="sidebar-logo">
     <div class="logo-mark">RV</div>
-    <div class="logo-text">
+    <div>
       <span class="logo-name">REAVER</span>
-      <span class="logo-version">Design System v1.0</span>
+      <span class="logo-ver">Design System v1.0</span>
     </div>
   </div>
-
   <nav class="sidebar-nav">
-
     <div class="nav-group">
       <div class="nav-group-label">Introduction</div>
-      <a class="nav-link active" href="#intro" onclick="setActive(this)">
-        <span class="nav-dot"></span> Overview
-      </a>
-      <a class="nav-link" href="#principles" onclick="setActive(this)">
-        <span class="nav-dot"></span> Principles
-      </a>
+      <a class="nav-link active" href="#intro"><span class="nav-dot"></span>Overview</a>
+      <a class="nav-link" href="#principles"><span class="nav-dot"></span>Principles</a>
     </div>
-
     <div class="nav-group">
       <div class="nav-group-label">Foundations</div>
-      <a class="nav-link" href="#colors" onclick="setActive(this)">
-        <span class="nav-dot"></span> Color System
-      </a>
-      <a class="nav-link" href="#typography" onclick="setActive(this)">
-        <span class="nav-dot"></span> Typography
-        <span style="font-size:10px;color:var(--text-tertiary);margin-left:auto">Soon</span>
-      </a>
-      <a class="nav-link" href="#spacing" onclick="setActive(this)">
-        <span class="nav-dot"></span> Spacing & Layout
-        <span style="font-size:10px;color:var(--text-tertiary);margin-left:auto">Soon</span>
-      </a>
-      <a class="nav-link" href="#elevation" onclick="setActive(this)">
-        <span class="nav-dot"></span> Elevation & Motion
-        <span style="font-size:10px;color:var(--text-tertiary);margin-left:auto">Soon</span>
-      </a>
+      <a class="nav-link" href="#colors"><span class="nav-dot"></span>Color System</a>
     </div>
-
-    <div class="nav-group">
-      <div class="nav-group-label">Tokens</div>
-      <a class="nav-link" href="#tokens" onclick="setActive(this)">
-        <span class="nav-dot"></span> CSS Custom Properties
-        <span style="font-size:10px;color:var(--text-tertiary);margin-left:auto">Soon</span>
-      </a>
-    </div>
-
     <div class="nav-group">
       <div class="nav-group-label">Components</div>
-      <a class="nav-link" href="#buttons" onclick="setActive(this)">
-        <span class="nav-dot"></span> Buttons
-        <span style="font-size:10px;color:var(--text-tertiary);margin-left:auto">Soon</span>
-      </a>
-      <a class="nav-link" href="#inputs" onclick="setActive(this)">
-        <span class="nav-dot"></span> Inputs & Forms
-        <span style="font-size:10px;color:var(--text-tertiary);margin-left:auto">Soon</span>
-      </a>
-      <a class="nav-link" href="#cards" onclick="setActive(this)">
-        <span class="nav-dot"></span> Cards
-        <span style="font-size:10px;color:var(--text-tertiary);margin-left:auto">Soon</span>
-      </a>
+      <a class="nav-link" href="#btn"><span class="nav-dot"></span>Button</a>
+      <a class="nav-link" href="#input"><span class="nav-dot"></span>Input</a>
+      <a class="nav-link" href="#gamecard"><span class="nav-dot"></span>Game Card</a>
+      <a class="nav-link" href="#badge"><span class="nav-dot"></span>Badge</a>
+      <a class="nav-link" href="#checkbox"><span class="nav-dot"></span>Checkbox</a>
     </div>
-
   </nav>
-
 </aside>
 
-<!-- ============================================================
-     MAIN CONTENT
-     ============================================================ -->
 <div class="main">
 <div class="content">
 
-  <!-- HERO -->
-  <section id="intro" class="hero">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Design System
-    </div>
-    <h1 class="hero-title">
-      REAVER<br><span>Design System</span>
-    </h1>
-    <p class="hero-subtitle">
-      A unified foundation of design decisions, visual language, and component specifications for the REAVER game top-up platform. Built for precision, trust, and speed.
-    </p>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <span class="hero-meta-label">Version</span>
-        <span class="hero-meta-value">1.0.0</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="hero-meta-label">Theme</span>
-        <span class="hero-meta-value">Dark Mode Only</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="hero-meta-label">Platform</span>
-        <span class="hero-meta-value">Mobile-First</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="hero-meta-label">Accessibility</span>
-        <span class="hero-meta-value">WCAG AA</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="hero-meta-label">Language</span>
-        <span class="hero-meta-value">TH / EN</span>
-      </div>
-    </div>
-  </section>
+<section id="intro" class="hero">
+  <div class="hero-badge"><span class="hero-badge-dot"></span>Design System</div>
+  <h1 class="hero-title">REAVER<br><span>Design System</span></h1>
+  <p class="hero-sub">A unified foundation of design decisions, visual language, and component specifications for the REAVER game top-up platform.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="meta-label">Version</span><span class="meta-value">1.0.0</span></div>
+    <div class="hero-meta-item"><span class="meta-label">Theme</span><span class="meta-value">Dark Only</span></div>
+    <div class="hero-meta-item"><span class="meta-label">Platform</span><span class="meta-value">Mobile-First</span></div>
+    <div class="hero-meta-item"><span class="meta-label">Accessibility</span><span class="meta-value">WCAG AA</span></div>
+    <div class="hero-meta-item"><span class="meta-label">Language</span><span class="meta-value">TH / EN</span></div>
+  </div>
+</section>
 
-  <!-- PRINCIPLES -->
-  <section id="principles" class="section">
-    <p class="section-eyebrow">01 — Foundations</p>
-    <h2 class="section-title">Design Principles</h2>
-    <p class="section-desc">
-      Five principles that govern every design decision in REAVER. When in doubt, return to these.
-    </p>
+<section id="principles" class="section">
+  <p class="eyebrow">01 — Foundations</p>
+  <h2 class="section-title">Design Principles</h2>
+  <p class="section-desc">Five principles governing every design decision in REAVER.</p>
+  <div class="principles-grid">
+    <div class="p-card"><div class="p-num">01</div><div class="p-name">Precision</div><div class="p-desc">Every element is intentional. Each component earns its place through function alone.</div></div>
+    <div class="p-card"><div class="p-num">02</div><div class="p-name">Trust</div><div class="p-desc">Consistent patterns and reliable feedback. Users always know where they are and what will happen next.</div></div>
+    <div class="p-card"><div class="p-num">03</div><div class="p-name">Speed</div><div class="p-desc">Optimized for fast transactions. Minimal clicks, clear CTAs, zero friction between intent and action.</div></div>
+    <div class="p-card"><div class="p-num">04</div><div class="p-name">Premium</div><div class="p-desc">Elevated through restraint — generous spacing, sharp contrast, obsessive consistency.</div></div>
+    <div class="p-card"><div class="p-num">05</div><div class="p-name">Clarity</div><div class="p-desc">Content-first layout. Game artwork provides context; actions are always the visual priority.</div></div>
+  </div>
+</section>
 
-    <div class="principles-grid">
-      <div class="principle-card">
-        <div class="principle-number">01</div>
-        <div class="principle-name">Precision</div>
-        <div class="principle-desc">Every element is intentional. No decorative noise. Each component earns its place through function alone.</div>
-      </div>
-      <div class="principle-card">
-        <div class="principle-number">02</div>
-        <div class="principle-name">Trust</div>
-        <div class="principle-desc">Consistent patterns, clear hierarchy, reliable feedback. Users always know where they are and what will happen next.</div>
-      </div>
-      <div class="principle-card">
-        <div class="principle-number">03</div>
-        <div class="principle-name">Speed</div>
-        <div class="principle-desc">Optimized for fast transactions. Minimal clicks, clear CTAs, zero cognitive friction between intent and action.</div>
-      </div>
-      <div class="principle-card">
-        <div class="principle-number">04</div>
-        <div class="principle-name">Premium</div>
-        <div class="principle-desc">Elevated through restraint — generous spacing, sharp contrast, obsessive consistency. Never through decoration.</div>
-      </div>
-      <div class="principle-card">
-        <div class="principle-number">05</div>
-        <div class="principle-name">Clarity</div>
-        <div class="principle-desc">Content-first layout. Game artwork provides context; it never competes with the interface. Actions are always the visual priority.</div>
-      </div>
-    </div>
-  </section>
+<section id="colors" class="section">
+  <p class="eyebrow">02 — Foundations</p>
+  <h2 class="section-title">Color System</h2>
+  <p class="section-desc">One dominant neutral system. One strong primary accent. Semantic colors reserved strictly for feedback states.</p>
 
-  <!-- COLOR SYSTEM -->
-  <section id="colors" class="section">
-    <p class="section-eyebrow">02 — Foundations</p>
-    <h2 class="section-title">Color System</h2>
-    <p class="section-desc">
-      One dominant neutral system. One strong primary accent. Semantic colors reserved strictly for feedback states. No decoration — only communication.
-    </p>
+  <h3 class="sub-title">Crimson Scale</h3>
+  <div class="color-row">
+    <div class="swatch"><div class="swatch-block" style="background:#FFF0F1"></div><div class="swatch-num">50</div><div class="swatch-hex">#FFF0F1</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#FFD6D9"></div><div class="swatch-num">100</div><div class="swatch-hex">#FFD6D9</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#FFACB3"></div><div class="swatch-num">200</div><div class="swatch-hex">#FFACB3</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#FF7282"></div><div class="swatch-num">300</div><div class="swatch-hex">#FF7282</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#E84055"></div><div class="swatch-num">400</div><div class="swatch-hex">#E84055</div></div>
+    <div class="swatch primary"><div class="swatch-block" style="background:#C41E3A;box-shadow:0 0 0 2px #C41E3A,0 0 0 4px #141416"></div><div class="swatch-num">500 ★</div><div class="swatch-hex">#C41E3A</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#A51830"></div><div class="swatch-num">600</div><div class="swatch-hex">#A51830</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#8A1228"></div><div class="swatch-num">700</div><div class="swatch-hex">#8A1228</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#6D0D1F"></div><div class="swatch-num">800</div><div class="swatch-hex">#6D0D1F</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#4A0813"></div><div class="swatch-num">900</div><div class="swatch-hex">#4A0813</div></div>
+  </div>
 
-    <!-- Crimson Scale -->
-    <h3 class="subsection-title">Crimson Scale — Primary Brand Color</h3>
-    <div class="color-scale">
-      <div class="color-row">
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#FFF0F1"></div>
-          <div class="color-swatch-name">50</div>
-          <div class="color-swatch-hex">#FFF0F1</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#FFD6D9"></div>
-          <div class="color-swatch-name">100</div>
-          <div class="color-swatch-hex">#FFD6D9</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#FFACB3"></div>
-          <div class="color-swatch-name">200</div>
-          <div class="color-swatch-hex">#FFACB3</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#FF7282"></div>
-          <div class="color-swatch-name">300</div>
-          <div class="color-swatch-hex">#FF7282</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#E84055"></div>
-          <div class="color-swatch-name">400</div>
-          <div class="color-swatch-hex">#E84055</div>
-        </div>
-        <div class="color-swatch is-primary">
-          <div class="color-swatch-block" style="background:#C41E3A; box-shadow: 0 0 0 2px var(--brand), 0 0 0 4px var(--bg-surface);"></div>
-          <div class="color-swatch-name">500 ★</div>
-          <div class="color-swatch-hex">#C41E3A</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#A51830"></div>
-          <div class="color-swatch-name">600</div>
-          <div class="color-swatch-hex">#A51830</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#8A1228"></div>
-          <div class="color-swatch-name">700</div>
-          <div class="color-swatch-hex">#8A1228</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#6D0D1F"></div>
-          <div class="color-swatch-name">800</div>
-          <div class="color-swatch-hex">#6D0D1F</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#4A0813"></div>
-          <div class="color-swatch-name">900</div>
-          <div class="color-swatch-hex">#4A0813</div>
-        </div>
+  <h3 class="sub-title">Neutral Scale</h3>
+  <div class="color-row">
+    <div class="swatch"><div class="swatch-block" style="background:#F5F5F7"></div><div class="swatch-num">50</div><div class="swatch-hex">#F5F5F7</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#E5E5EA"></div><div class="swatch-num">100</div><div class="swatch-hex">#E5E5EA</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#C7C7CC"></div><div class="swatch-num">200</div><div class="swatch-hex">#C7C7CC</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#AEAEB2"></div><div class="swatch-num">300</div><div class="swatch-hex">#AEAEB2</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#8E8E93"></div><div class="swatch-num">400</div><div class="swatch-hex">#8E8E93</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#636366"></div><div class="swatch-num">500</div><div class="swatch-hex">#636366</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#48484A"></div><div class="swatch-num">600</div><div class="swatch-hex">#48484A</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#363638"></div><div class="swatch-num">700</div><div class="swatch-hex">#363638</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#2C2C2E"></div><div class="swatch-num">800</div><div class="swatch-hex">#2C2C2E</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#1C1C1E"></div><div class="swatch-num">900</div><div class="swatch-hex">#1C1C1E</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#141416"></div><div class="swatch-num">950</div><div class="swatch-hex">#141416</div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#0A0A0C;border:1px solid #2C2C2E"></div><div class="swatch-num">1000</div><div class="swatch-hex">#0A0A0C</div></div>
+  </div>
+
+  <h3 class="sub-title">Backgrounds & Surfaces</h3>
+  <div class="semantic-grid">
+    <div class="sem-card"><div class="sem-swatch" style="background:#141416"><div class="sem-dot" style="background:#0A0A0C"></div></div><div class="sem-info"><div class="sem-role">Background Base</div><div class="sem-token">--bg-base</div><div class="sem-hex">#0A0A0C</div></div></div>
+    <div class="sem-card"><div class="sem-swatch" style="background:#1C1C1E"><div class="sem-dot" style="background:#141416"></div></div><div class="sem-info"><div class="sem-role">Surface</div><div class="sem-token">--bg-surface</div><div class="sem-hex">#141416</div></div></div>
+    <div class="sem-card"><div class="sem-swatch" style="background:#2C2C2E"><div class="sem-dot" style="background:#1C1C1E"></div></div><div class="sem-info"><div class="sem-role">Surface Elevated</div><div class="sem-token">--bg-elevated</div><div class="sem-hex">#1C1C1E</div></div></div>
+    <div class="sem-card"><div class="sem-swatch" style="background:#363638"><div class="sem-dot" style="background:#2C2C2E"></div></div><div class="sem-info"><div class="sem-role">Overlay / Hover</div><div class="sem-token">--bg-overlay</div><div class="sem-hex">#2C2C2E</div></div></div>
+  </div>
+
+  <h3 class="sub-title">Text & Brand Tokens</h3>
+  <table class="tbl">
+    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+    <tbody>
+      <tr><td>--text-primary</td><td><span class="chip" style="background:#F5F5F7"></span>#F5F5F7</td><td>Headings, active labels</td></tr>
+      <tr><td>--text-secondary</td><td><span class="chip" style="background:#AEAEB2"></span>#AEAEB2</td><td>Body text, descriptions</td></tr>
+      <tr><td>--text-tertiary</td><td><span class="chip" style="background:#636366"></span>#636366</td><td>Helper text, timestamps</td></tr>
+      <tr><td>--text-disabled</td><td><span class="chip" style="background:#48484A"></span>#48484A</td><td>Disabled state labels</td></tr>
+      <tr><td>--brand</td><td><span class="chip" style="background:#C41E3A"></span>#C41E3A</td><td>Primary buttons, active states, accents</td></tr>
+      <tr><td>--brand-hover</td><td><span class="chip" style="background:#E84055"></span>#E84055</td><td>Button hover</td></tr>
+      <tr><td>--brand-active</td><td><span class="chip" style="background:#A51830"></span>#A51830</td><td>Button pressed</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-title">Status Colors</h3>
+  <div class="semantic-grid">
+    <div class="sem-card"><div class="sem-swatch" style="background:rgba(48,164,108,.12)"><div class="sem-dot" style="background:#30A46C"></div></div><div class="sem-info"><div class="sem-role">Success</div><div class="sem-token">--success</div><div class="sem-hex">#30A46C</div></div></div>
+    <div class="sem-card"><div class="sem-swatch" style="background:rgba(245,158,11,.12)"><div class="sem-dot" style="background:#F59E0B"></div></div><div class="sem-info"><div class="sem-role">Warning</div><div class="sem-token">--warning</div><div class="sem-hex">#F59E0B</div></div></div>
+    <div class="sem-card"><div class="sem-swatch" style="background:rgba(239,68,68,.12)"><div class="sem-dot" style="background:#EF4444"></div></div><div class="sem-info"><div class="sem-role">Error</div><div class="sem-token">--error</div><div class="sem-hex">#EF4444</div></div></div>
+    <div class="sem-card"><div class="sem-swatch" style="background:rgba(59,130,246,.12)"><div class="sem-dot" style="background:#3B82F6"></div></div><div class="sem-info"><div class="sem-role">Info</div><div class="sem-token">--info</div><div class="sem-hex">#3B82F6</div></div></div>
+  </div>
+</section>
+
+<section id="components" class="section">
+  <p class="eyebrow">03 — Components</p>
+  <h2 class="section-title">Components</h2>
+  <p class="section-desc">Core UI components with all variants and states.</p>
+
+  <div class="comp-section" id="btn">
+    <h3 class="comp-title">Button</h3>
+    <p class="comp-desc">4 variants · 3 sizes · disabled state</p>
+    <div class="demo">
+      <span class="demo-label">Variants</span>
+      <div class="demo-row">
+        <button class="btn btn-primary">Top Up Now</button>
+        <button class="btn btn-secondary">View Games</button>
+        <button class="btn btn-ghost">Cancel</button>
+        <button class="btn btn-danger">Delete</button>
+      </div>
+      <span class="demo-label">Sizes</span>
+      <div class="demo-row">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Default</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+      </div>
+      <span class="demo-label">Disabled</span>
+      <div class="demo-row">
+        <button class="btn btn-primary" disabled>Primary</button>
+        <button class="btn btn-secondary" disabled>Secondary</button>
+        <button class="btn btn-ghost" disabled>Ghost</button>
       </div>
     </div>
+  </div>
 
-    <!-- Neutral Scale -->
-    <h3 class="subsection-title">Neutral Scale — Dark Foundation</h3>
-    <div class="color-scale">
-      <div class="color-row">
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#F5F5F7"></div>
-          <div class="color-swatch-name">50</div>
-          <div class="color-swatch-hex">#F5F5F7</div>
+  <div class="comp-section" id="input">
+    <h3 class="comp-title">Input</h3>
+    <p class="comp-desc">Default · Error · Disabled states</p>
+    <div class="demo">
+      <div class="demo-col">
+        <div class="input-wrap">
+          <label class="input-label">Game ID</label>
+          <input class="input" type="text" placeholder="Enter your Game ID">
         </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#E5E5EA"></div>
-          <div class="color-swatch-name">100</div>
-          <div class="color-swatch-hex">#E5E5EA</div>
+        <div class="input-wrap">
+          <label class="input-label">Game ID</label>
+          <input class="input error" type="text" value="wrongid!@#">
+          <span class="input-hint error">Invalid Game ID format</span>
         </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#C7C7CC"></div>
-          <div class="color-swatch-name">200</div>
-          <div class="color-swatch-hex">#C7C7CC</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#AEAEB2"></div>
-          <div class="color-swatch-name">300</div>
-          <div class="color-swatch-hex">#AEAEB2</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#8E8E93"></div>
-          <div class="color-swatch-name">400</div>
-          <div class="color-swatch-hex">#8E8E93</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#636366"></div>
-          <div class="color-swatch-name">500</div>
-          <div class="color-swatch-hex">#636366</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#48484A"></div>
-          <div class="color-swatch-name">600</div>
-          <div class="color-swatch-hex">#48484A</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#363638"></div>
-          <div class="color-swatch-name">700</div>
-          <div class="color-swatch-hex">#363638</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#2C2C2E"></div>
-          <div class="color-swatch-name">800</div>
-          <div class="color-swatch-hex">#2C2C2E</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#1C1C1E"></div>
-          <div class="color-swatch-name">900</div>
-          <div class="color-swatch-hex">#1C1C1E</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#141416"></div>
-          <div class="color-swatch-name">950</div>
-          <div class="color-swatch-hex">#141416</div>
-        </div>
-        <div class="color-swatch">
-          <div class="color-swatch-block" style="background:#0A0A0C"></div>
-          <div class="color-swatch-name">1000</div>
-          <div class="color-swatch-hex">#0A0A0C</div>
+        <div class="input-wrap">
+          <label class="input-label">Game ID</label>
+          <input class="input" type="text" placeholder="Disabled" disabled>
+          <span class="input-hint">This field is currently unavailable</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Semantic: Background -->
-    <h3 class="subsection-title">Semantic Tokens — Backgrounds & Surfaces</h3>
-    <div class="semantic-grid">
-      <div class="semantic-card">
-        <div class="semantic-swatch" style="background:#141416">
-          <div class="semantic-swatch-inner" style="background:#0A0A0C; border: 1px solid #2C2C2E;"></div>
+  <div class="comp-section" id="gamecard">
+    <h3 class="comp-title">Game Card</h3>
+    <p class="comp-desc">Game catalog card with thumbnail, name, and CTA</p>
+    <div class="demo">
+      <div class="game-grid">
+        <div class="game-card">
+          <div class="game-thumb">
+            <div class="game-thumb-img" style="background:linear-gradient(135deg,#1a0533 0%,#3d1a6e 50%,#1a0533 100%)">
+              <span class="badge badge-brand" style="font-size:9px">HOT</span>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="game-info">
+              <div class="game-name">Mobile Legends</div>
+              <div class="game-sub">Diamonds · Tickets</div>
+            </div>
+            <button class="btn btn-primary btn-sm">Top Up</button>
+          </div>
         </div>
-        <div class="semantic-info">
-          <div class="semantic-role">Background Base</div>
-          <div class="semantic-token">--bg-base</div>
-          <div class="semantic-hex">#0A0A0C</div>
+        <div class="game-card">
+          <div class="game-thumb">
+            <div class="game-thumb-img" style="background:linear-gradient(135deg,#1a0a00 0%,#5c2800 50%,#1a0a00 100%)">
+              <span class="badge badge-warning" style="font-size:9px">SALE</span>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="game-info">
+              <div class="game-name">Free Fire</div>
+              <div class="game-sub">Diamonds · Elite Pass</div>
+            </div>
+            <button class="btn btn-primary btn-sm">Top Up</button>
+          </div>
         </div>
-      </div>
-      <div class="semantic-card">
-        <div class="semantic-swatch" style="background:#1C1C1E">
-          <div class="semantic-swatch-inner" style="background:#141416; border: 1px solid #363638;"></div>
-        </div>
-        <div class="semantic-info">
-          <div class="semantic-role">Surface</div>
-          <div class="semantic-token">--bg-surface</div>
-          <div class="semantic-hex">#141416</div>
-        </div>
-      </div>
-      <div class="semantic-card">
-        <div class="semantic-swatch" style="background:#2C2C2E">
-          <div class="semantic-swatch-inner" style="background:#1C1C1E; border: 1px solid #363638;"></div>
-        </div>
-        <div class="semantic-info">
-          <div class="semantic-role">Surface Elevated</div>
-          <div class="semantic-token">--bg-elevated</div>
-          <div class="semantic-hex">#1C1C1E</div>
-        </div>
-      </div>
-      <div class="semantic-card">
-        <div class="semantic-swatch" style="background:#363638">
-          <div class="semantic-swatch-inner" style="background:#2C2C2E; border: 1px solid #48484A;"></div>
-        </div>
-        <div class="semantic-info">
-          <div class="semantic-role">Overlay / Hover</div>
-          <div class="semantic-token">--bg-overlay</div>
-          <div class="semantic-hex">#2C2C2E</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Semantic: Text -->
-    <h3 class="subsection-title">Semantic Tokens — Text</h3>
-    <table class="usage-table">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Value</th>
-          <th>Usage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>--text-primary</td>
-          <td><span class="chip" style="background:#F5F5F7"></span>#F5F5F7</td>
-          <td>Headings, primary content, active labels</td>
-        </tr>
-        <tr>
-          <td>--text-secondary</td>
-          <td><span class="chip" style="background:#AEAEB2"></span>#AEAEB2</td>
-          <td>Body text, descriptions, secondary labels</td>
-        </tr>
-        <tr>
-          <td>--text-tertiary</td>
-          <td><span class="chip" style="background:#636366"></span>#636366</td>
-          <td>Helper text, timestamps, placeholders</td>
-        </tr>
-        <tr>
-          <td>--text-disabled</td>
-          <td><span class="chip" style="background:#48484A"></span>#48484A</td>
-          <td>Disabled input labels, inactive nav links</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Semantic: Brand -->
-    <h3 class="subsection-title">Semantic Tokens — Brand Crimson</h3>
-    <table class="usage-table">
-      <thead>
-        <tr>
-          <th>Token</th>
-          <th>Value</th>
-          <th>Usage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>--brand</td>
-          <td><span class="chip" style="background:#C41E3A"></span>#C41E3A</td>
-          <td>Primary buttons, active states, links, accents</td>
-        </tr>
-        <tr>
-          <td>--brand-hover</td>
-          <td><span class="chip" style="background:#E84055"></span>#E84055</td>
-          <td>Button hover state</td>
-        </tr>
-        <tr>
-          <td>--brand-active</td>
-          <td><span class="chip" style="background:#A51830"></span>#A51830</td>
-          <td>Button active/pressed state</td>
-        </tr>
-        <tr>
-          <td>--brand-subtle</td>
-          <td><span class="chip" style="background:rgba(196,30,58,0.12)"></span>rgba(196,30,58,0.12)</td>
-          <td>Selected item background, badge backgrounds</td>
-        </tr>
-        <tr>
-          <td>--brand-border</td>
-          <td><span class="chip" style="background:rgba(196,30,58,0.30)"></span>rgba(196,30,58,0.30)</td>
-          <td>Focus rings, active card borders, badge borders</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Semantic: Status -->
-    <h3 class="subsection-title">Semantic Tokens — Status</h3>
-    <div class="semantic-grid">
-      <div class="semantic-card">
-        <div class="semantic-swatch" style="background: rgba(48,164,108,0.12)">
-          <div class="semantic-swatch-inner" style="background:#30A46C; border: 1px solid rgba(48,164,108,0.4);"></div>
-        </div>
-        <div class="semantic-info">
-          <div class="semantic-role">Success</div>
-          <div class="semantic-token">--success</div>
-          <div class="semantic-hex">#30A46C</div>
-        </div>
-      </div>
-      <div class="semantic-card">
-        <div class="semantic-swatch" style="background: rgba(245,158,11,0.12)">
-          <div class="semantic-swatch-inner" style="background:#F59E0B; border: 1px solid rgba(245,158,11,0.4);"></div>
-        </div>
-        <div class="semantic-info">
-          <div class="semantic-role">Warning</div>
-          <div class="semantic-token">--warning</div>
-          <div class="semantic-hex">#F59E0B</div>
-        </div>
-      </div>
-      <div class="semantic-card">
-        <div class="semantic-swatch" style="background: rgba(239,68,68,0.12)">
-          <div class="semantic-swatch-inner" style="background:#EF4444; border: 1px solid rgba(239,68,68,0.4);"></div>
-        </div>
-        <div class="semantic-info">
-          <div class="semantic-role">Error</div>
-          <div class="semantic-token">--error</div>
-          <div class="semantic-hex">#EF4444</div>
-        </div>
-      </div>
-      <div class="semantic-card">
-        <div class="semantic-swatch" style="background: rgba(59,130,246,0.12)">
-          <div class="semantic-swatch-inner" style="background:#3B82F6; border: 1px solid rgba(59,130,246,0.4);"></div>
-        </div>
-        <div class="semantic-info">
-          <div class="semantic-role">Info</div>
-          <div class="semantic-token">--info</div>
-          <div class="semantic-hex">#3B82F6</div>
+        <div class="game-card">
+          <div class="game-thumb">
+            <div class="game-thumb-img" style="background:linear-gradient(135deg,#001a1a 0%,#003d3d 50%,#001a1a 100%)"></div>
+          </div>
+          <div class="game-body">
+            <div class="game-info">
+              <div class="game-name">Genshin Impact</div>
+              <div class="game-sub">Genesis Crystals</div>
+            </div>
+            <button class="btn btn-primary btn-sm">Top Up</button>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- CSS Tokens reference block -->
-    <h3 class="subsection-title">CSS Custom Properties Reference</h3>
-    <div class="code-block">
-<pre>
-<span class="token-comment">/* Paste into your global CSS or tailwind.config.js theme.extend */</span>
-
-:root {
-  <span class="token-comment">/* Crimson */</span>
-  <span class="token-name">--c-500</span>: <span class="token-value">#C41E3A</span>;   <span class="token-comment">/* Primary brand */</span>
-  <span class="token-name">--c-400</span>: <span class="token-value">#E84055</span>;   <span class="token-comment">/* Hover */</span>
-  <span class="token-name">--c-600</span>: <span class="token-value">#A51830</span>;   <span class="token-comment">/* Active/pressed */</span>
-
-  <span class="token-comment">/* Backgrounds */</span>
-  <span class="token-name">--bg-base</span>:     <span class="token-value">#0A0A0C</span>;
-  <span class="token-name">--bg-surface</span>:  <span class="token-value">#141416</span>;
-  <span class="token-name">--bg-elevated</span>: <span class="token-value">#1C1C1E</span>;
-  <span class="token-name">--bg-overlay</span>:  <span class="token-value">#2C2C2E</span>;
-
-  <span class="token-comment">/* Text */</span>
-  <span class="token-name">--text-primary</span>:   <span class="token-value">#F5F5F7</span>;
-  <span class="token-name">--text-secondary</span>: <span class="token-value">#AEAEB2</span>;
-  <span class="token-name">--text-tertiary</span>:  <span class="token-value">#636366</span>;
-  <span class="token-name">--text-disabled</span>:  <span class="token-value">#48484A</span>;
-
-  <span class="token-comment">/* Borders */</span>
-  <span class="token-name">--border-subtle</span>:  <span class="token-value">#2C2C2E</span>;
-  <span class="token-name">--border-default</span>: <span class="token-value">#363638</span>;
-  <span class="token-name">--border-strong</span>:  <span class="token-value">#48484A</span>;
-
-  <span class="token-comment">/* Status */</span>
-  <span class="token-name">--success</span>: <span class="token-value">#30A46C</span>;
-  <span class="token-name">--warning</span>: <span class="token-value">#F59E0B</span>;
-  <span class="token-name">--error</span>:   <span class="token-value">#EF4444</span>;
-  <span class="token-name">--info</span>:    <span class="token-value">#3B82F6</span>;
-}
-</pre>
+  <div class="comp-section" id="badge">
+    <h3 class="comp-title">Badge</h3>
+    <p class="comp-desc">Status indicators and labels</p>
+    <div class="demo">
+      <span class="demo-label">Variants</span>
+      <div class="demo-row">
+        <span class="badge badge-success"><span class="badge-dot"></span>Success</span>
+        <span class="badge badge-warning"><span class="badge-dot"></span>Pending</span>
+        <span class="badge badge-error"><span class="badge-dot"></span>Failed</span>
+        <span class="badge badge-info"><span class="badge-dot"></span>Processing</span>
+        <span class="badge badge-brand"><span class="badge-dot"></span>Premium</span>
+        <span class="badge badge-neutral">Default</span>
+      </div>
+      <span class="demo-label">Without dot</span>
+      <div class="demo-row">
+        <span class="badge badge-success">Completed</span>
+        <span class="badge badge-warning">Expiring Soon</span>
+        <span class="badge badge-error">Expired</span>
+        <span class="badge badge-brand">Flash Sale</span>
+      </div>
     </div>
+  </div>
 
-  </section>
+  <div class="comp-section" id="checkbox">
+    <h3 class="comp-title">Checkbox</h3>
+    <p class="comp-desc">Selection control with checked and disabled states</p>
+    <div class="demo">
+      <div class="checkbox-group">
+        <label class="checkbox">
+          <input type="checkbox">
+          <span>Remember this account</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" checked>
+          <span>I agree to the Terms & Conditions</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" checked>
+          <span>Receive promotional notifications</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" disabled>
+          <span>This option is unavailable</span>
+        </label>
+      </div>
+    </div>
+  </div>
 
-  <!-- Placeholder sections (coming next) -->
-  <section style="padding: var(--sp-12) 0; text-align: center; opacity: 0.4;">
-    <p style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: var(--sp-3);">Upcoming Sections</p>
-    <p style="font-size: 13px; color: var(--text-tertiary); line-height: 1.8;">
-      Typography · Spacing & Layout · Elevation & Motion<br>
-      Design Tokens · Buttons · Inputs · Cards · Navigation · Overlays · Page Patterns
-    </p>
-  </section>
+</section>
 
 </div>
 </div>
 
-<!-- ============================================================
-     SCRIPT — Navigation
-     ============================================================ -->
 <script>
-  function setActive(el) {
-    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    el.classList.add('active');
-    closeSidebar();
-  }
-
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('menuOverlay').classList.toggle('open');
-  }
-
-  function closeSidebar() {
-    document.getElementById('sidebar').classList.remove('open');
-    document.getElementById('menuOverlay').classList.remove('open');
-  }
-
-  // Auto-highlight nav on scroll
-  const sections = document.querySelectorAll('[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
-    });
-    navLinks.forEach(l => {
-      l.classList.remove('active');
-      if (l.getAttribute('href') === '#' + current) l.classList.add('active');
-    });
-  }, { passive: true });
+function setActive(el){
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  el.classList.add('active');
+  if(window.innerWidth<=768)closeSidebar();
+}
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+const links=document.querySelectorAll('.nav-link');
+links.forEach(l=>l.addEventListener('click',function(){setActive(this)}));
+window.addEventListener('scroll',()=>{
+  const ids=['intro','principles','colors','btn','input','gamecard','badge','checkbox'];
+  let cur='';
+  ids.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&window.scrollY>=el.offsetTop-140)cur=id;
+  });
+  links.forEach(l=>{
+    l.classList.remove('active');
+    const href=l.getAttribute('href');
+    if(href==='#'+cur)l.classList.add('active');
+  });
+},{passive:true});
 </script>
-
 </body>
 </html>
